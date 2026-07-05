@@ -100,14 +100,21 @@
 
 }
 
-
 /* ===========================
    Table
 =========================== */
 
 .table-container{
 
-    margin-top:20px;
+    width:100%;
+
+    overflow-x:auto;
+
+    border-radius:12px;
+
+    border:1px solid #374151;
+
+    background:#111827;
 
 }
 
@@ -117,6 +124,21 @@
 
     border-collapse:collapse;
 
+    table-layout:fixed;
+
+}
+
+#tbmTable th,
+#tbmTable td{
+
+    padding:16px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    word-wrap:break-word;
+
 }
 
 #tbmTable th{
@@ -125,22 +147,57 @@
 
     color:#60a5fa;
 
-    padding:16px;
-
-    white-space:nowrap;
-
 }
 
 #tbmTable td{
 
-    padding:16px;
-
     border-top:1px solid #374151;
-
-    vertical-align:middle;
 
 }
 
+/* Column widths */
+
+#tbmTable th:nth-child(1),
+#tbmTable td:nth-child(1){
+
+    width:16%;
+
+}
+
+#tbmTable th:nth-child(2),
+#tbmTable td:nth-child(2){
+
+    width:14%;
+
+}
+
+#tbmTable th:nth-child(3),
+#tbmTable td:nth-child(3){
+
+    width:16%;
+
+}
+
+#tbmTable th:nth-child(4),
+#tbmTable td:nth-child(4){
+
+    width:16%;
+
+}
+
+#tbmTable th:nth-child(5),
+#tbmTable td:nth-child(5){
+
+    width:22%;
+
+}
+
+#tbmTable th:nth-child(6),
+#tbmTable td:nth-child(6){
+
+    width:16%;
+
+}
 
 /* ===========================
    Status Badges
@@ -203,13 +260,13 @@
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(220px,300px));
 
-    gap:20px;
+    justify-content:center;
 
-    margin-top:20px;
+    gap:24px;
 
-    align-items:end;
+    margin:20px auto 0;
 
 }
 
