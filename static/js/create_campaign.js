@@ -8,7 +8,7 @@ async function uploadFirmware(file, ecu, version) {
 
     const renamedFile = new File(
         [file],
-        `${ecu}_${formattedVersion}.${extension}`,
+        `${ecu}_v${formattedVersion}.${extension}`,
         {
             type: file.type
         }
