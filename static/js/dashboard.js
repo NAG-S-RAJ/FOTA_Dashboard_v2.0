@@ -1,5 +1,5 @@
 const SERVER =
-"https://fota-demo.onrender.com";
+"https://fota-dashboard-v2-0.onrender.com";
 
 function downloadLogs(){
 
