@@ -1,4 +1,4 @@
-const SERVER = "https://fota-demo.onrender.com";
+const SERVER = "https://fota-dashboard-v2-0.onrender.com";
 
 let tbms = [];
 let onlineTBMs = [];
