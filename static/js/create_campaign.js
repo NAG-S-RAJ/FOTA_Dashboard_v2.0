@@ -1,12 +1,24 @@
 const SERVER = "https://fota-demo-v2-0.onrender.com";
 
-async function uploadFirmware(file) {
+async function uploadFirmware(file, ecu, version) {
+
+    const formattedVersion = Number(version).toFixed(1);
+
+    const extension = file.name.split(".").pop();
+
+    const renamedFile = new File(
+        [file],
+        `${ecu}_${formattedVersion}.${extension}`,
+        {
+            type: file.type
+        }
+    );
 
     const formData = new FormData();
 
     formData.append(
         "file",
-        file
+        renamedFile
     );
 
     const response = await fetch(
@@ -138,7 +150,9 @@ async function createCampaign() {
 
             const upload =
                 await uploadFirmware(
-                    sgwFile
+                    sgwFile,
+                    "SGW",
+                    sgwVersion
                 );
 
             if (upload.status !== "success") {
@@ -155,7 +169,9 @@ async function createCampaign() {
 
             const upload =
                 await uploadFirmware(
-                    bcmFile
+                    bcmFile,
+                    "BCM",
+                    bcmVersion
                 );
 
             if (upload.status !== "success") {
