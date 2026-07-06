@@ -546,3 +546,93 @@ button:hover{
             1fr 1fr;
     }
 }
+
+/* ===========================
+   Pending TBMs
+=========================== */
+
+.pendingItem{
+
+    background:#1f2937;
+
+    border:1px solid #374151;
+
+    border-left:4px solid #f59e0b;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-bottom:16px;
+
+    transition:.25s;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+
+}
+
+.pendingItem:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#fbbf24;
+
+}
+
+.pendingItem b{
+
+    font-size:17px;
+
+    color:#f8fafc;
+
+}
+
+.pendingItem .buttonGroup{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:16px;
+
+}
+
+.pendingItem button{
+
+    flex:1;
+
+    height:40px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+}
+
+.approve{
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+.approve:hover{
+
+    background:#15803d;
+
+}
+
+.reject{
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+.reject:hover{
+
+    background:#b91c1c;
+
+}
