@@ -59,15 +59,23 @@ async function createCampaign() {
             "enableBCM"
         ).checked;
 
-    const sgwVersion =
-        document.getElementById(
-            "sgwVersion"
-        ).value.trim();
+   let sgwVersion =
+    document.getElementById(
+        "sgwVersion"
+    ).value.trim();
 
-    const bcmVersion =
+    let bcmVersion =
         document.getElementById(
             "bcmVersion"
         ).value.trim();
+    
+    if (sgwVersion && !sgwVersion.includes(".")) {
+    sgwVersion = Number(sgwVersion).toFixed(1);
+    }
+    
+    if (bcmVersion && !bcmVersion.includes(".")) {
+        bcmVersion = Number(bcmVersion).toFixed(1);
+    }
 
     const sgwFile =
         document.getElementById(
