@@ -288,3 +288,47 @@ async function loadCurrentVersions() {
     document.getElementById("currentBCM").innerText =
         tbm.bcm_version;
 }
+
+async function loadVINs() {
+
+    try {
+
+        const response = await fetch(
+            SERVER + "/tbms",
+            {
+                cache: "no-store"
+            }
+        );
+
+        const data = await response.json();
+
+        const select =
+            document.getElementById("vin");
+
+        select.innerHTML =
+            '<option value="">Select Connected VIN</option>';
+
+        data.online_tbms.forEach(vin => {
+
+            select.innerHTML += `
+                <option value="${vin}">
+                    ${vin}
+                </option>
+            `;
+
+        });
+
+    }
+    catch (e) {
+
+        console.error("Unable to load VINs", e);
+
+    }
+
+}
+
+window.onload = function () {
+
+    loadVINs();
+
+};
