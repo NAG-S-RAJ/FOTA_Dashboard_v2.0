@@ -264,3 +264,27 @@ async function createCampaign() {
         console.error(e);
     }
 }
+
+async function loadCurrentVersions() {
+
+    const vin = document.getElementById("vin").value;
+
+    if (!vin) {
+
+        document.getElementById("currentSGW").innerText = "--";
+        document.getElementById("currentBCM").innerText = "--";
+        return;
+    }
+
+    const response = await fetch(
+        SERVER + "/registered_tbm/" + vin
+    );
+
+    const tbm = await response.json();
+
+    document.getElementById("currentSGW").innerText =
+        tbm.sgw_version;
+
+    document.getElementById("currentBCM").innerText =
+        tbm.bcm_version;
+}
