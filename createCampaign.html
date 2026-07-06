@@ -8,6 +8,7 @@
 <title>Create Campaign</title>
 
 <link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="static/css/createCampaign.css">
 
 </head>
 
@@ -18,7 +19,7 @@
     <div class="headerLeft">
 
     <img
-        src="static/images/logo.png"
+        src="../static/images/logo.png"
         class="headerLogo"
         alt="Bosch Logo">
 
@@ -103,10 +104,15 @@ type="text"
 id="campaignId"
 placeholder="Campaign ID">
 
-<input
-type="text"
-id="vin"
-placeholder="Target VIN">
+<select id="vin" onchange="loadCurrentVersions()">
+
+<option value="">
+
+Select Connected VIN
+
+</option>
+
+</select>
 
 <input
 type="text"
@@ -117,6 +123,17 @@ placeholder="Campaign Name">
 
 <h3>SGW ECU</h3>
 
+<div class="currentVersion">
+
+Current Version :
+<span id="currentSGW">
+
+--
+
+</span>
+
+</div>
+
 <div class="ecuToggle">
 
 <input
@@ -125,7 +142,7 @@ id="enableSGW">
 
 <label for="enableSGW">
 
-Include SGW Update
+Update SGW
 
 </label>
 
@@ -134,7 +151,7 @@ Include SGW Update
 <input
 type="text"
 id="sgwVersion"
-placeholder="SGW Target Version, Example: 1.0">
+placeholder="SGW Target Version">
 
 <input
 type="file"
@@ -147,6 +164,17 @@ accept=".bin">
 
 <h3>BCM ECU</h3>
 
+<div class="currentVersion">
+
+Current Version :
+<span id="currentBCM">
+
+--
+
+</span>
+
+</div>
+
 <div class="ecuToggle">
 
 <input
@@ -155,7 +183,7 @@ id="enableBCM">
 
 <label for="enableBCM">
 
-Include BCM Update
+Update BCM
 
 </label>
 
@@ -164,7 +192,7 @@ Include BCM Update
 <input
 type="text"
 id="bcmVersion"
-placeholder="BCM Target Version, Example: 1.0">
+placeholder="BCM Target Version">
 
 <input
 type="file"
