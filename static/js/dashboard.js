@@ -65,36 +65,36 @@ async function loadPending(){
         div.innerHTML += 
         `
         <div class="pendingItem">
+
+                <div class="pendingInfo">
             
-            <div class="pendingInfo">
+                    <b>${vin}</b>
             
-                <b>${vin}</b>
+                    <span>Pending Approval</span>
             
-                <span>Waiting for approval</span>
+                </div>
+            
+                <div class="buttonGroup">
+            
+                    <button
+                    class="approve"
+                    onclick="approveTBM('${vin}')">
+            
+                    Approve
+            
+                    </button>
+            
+                    <button
+                    class="reject"
+                    onclick="rejectTBM('${vin}')">
+            
+                    Reject
+            
+                    </button>
+            
+                </div>
             
             </div>
-            
-            <div class="buttonGroup">
-            
-                <button
-                class="approve"
-                onclick="approveTBM('${vin}')">
-            
-                Approve
-            
-                </button>
-            
-                <button
-                class="reject"
-                onclick="rejectTBM('${vin}')">
-            
-                Reject
-            
-                </button>
-            
-            </div>
-            
-        </div>
         `;
     });
 }
