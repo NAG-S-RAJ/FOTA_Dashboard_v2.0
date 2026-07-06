@@ -7,7 +7,8 @@
 
 <title>Campaign History</title>
 
-<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="../static/css/styles.css">
+<link rel="stylesheet" href="../static/css/CamapignHistory.css">
 
 </head>
 
@@ -17,10 +18,10 @@
 
     <div class="headerLeft">
 
-    <img
-        src="static/images/logo.png"
-        class="headerLogo"
-        alt="Bosch Logo">
+        <img
+            src="../static/images/logo.png"
+            class="headerLogo"
+            alt="Bosch Logo">
 
         <div>
 
@@ -35,81 +36,153 @@
         </div>
 
     </div>
-    <div style="display:flex;gap:10px;">
 
     <div class="navMenu">
 
-    <button
-        class="navBtn active"
+        <button class="navBtn active"
         onclick="window.location='index.html'">
+            Dashboard
+        </button>
 
-        Dashboard
-
-    </button>
-
-    <button
-        class="navBtn active"
+        <button class="navBtn active"
         onclick="window.location='registered_tbms.html'">
+            Registered TBMs
+        </button>
 
-        Registered TBMs
-
-    </button>
-
-    <button
-        class="navBtn active"
+        <button class="navBtn active"
         onclick="window.location='createCampaign.html'">
+            Create Campaign
+        </button>
 
-        Create Campaign
-
-    </button>
-
-    <button
-        class="navBtn"
+        <button class="navBtn"
         onclick="window.location='CampaignHistory.html'">
+            Campaign History
+        </button>
 
-        Campaign History
-
-    </button>
-
-    <button
-        class="navBtn active"
+        <button class="navBtn active"
         onclick="window.location='firmware_repository.html'">
+            Firmware Repository
+        </button>
 
-        Firmware Repository
-
-    </button>
-
-    <button
+        <button
         class="logoutBtn"
         onclick="logout()">
+            Logout
+        </button>
 
-        Logout
-
-    </button>
-
-</div>
+    </div>
 
 </div>
-</div>
+
 
 <div class="container">
+
+<!-- Page Title -->
+
+<div class="pageTitle">
+
+<h1>
+
+Campaign History
+
+</h1>
+
+<p>
+
+Monitor firmware deployment campaigns and update progress.
+
+</p>
+
+</div>
+
+
+<!-- KPI -->
+
+<div class="kpiRow">
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="campaignCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Total Campaigns
+
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="runningCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Running Campaigns
+
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="completedCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Completed
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Card -->
 
 <div class="card">
 
 <h2>
 
-Campaign History
+Campaign List
 
 </h2>
 
 <div class="toolbar">
 
 <input
+
 id="searchCampaign"
-placeholder="Search Campaign ID or VIN">
+
+placeholder="Search Campaign ID or VIN"
+
+onkeyup="loadCampaigns()">
 
 <button
-class="secondary"
+
+class="primary"
+
 onclick="loadCampaigns()">
 
 Refresh
@@ -117,6 +190,7 @@ Refresh
 </button>
 
 </div>
+
 
 <div class="table-container">
 
@@ -142,8 +216,6 @@ Refresh
 
 <th>Action</th>
 
-</tbody>
-
 </tr>
 
 </thead>
@@ -160,15 +232,15 @@ Refresh
 
 </div>
 
+
 <div class="footer">
 
 Bosch Engineering Demo • FOTA Platform v2.0
 
 </div>
 
-<link rel="stylesheet" href="static/css/CamapignHistory.css">
-
-<script src="static/js/campaign_history.js"></script>
+<script src="../static/js/common.js"></script>
+<script src="../static/js/campaign_history.js"></script>
 
 </body>
 
