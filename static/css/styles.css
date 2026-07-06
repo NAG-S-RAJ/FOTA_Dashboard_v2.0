@@ -559,17 +559,17 @@ button:hover{
 
     align-items:center;
 
-    background:#1b2433;
+    background:#1f2937;
 
-    border:1px solid #334155;
+    border:1px solid #374151;
 
-    border-left:5px solid #f59e0b;
+    border-left:4px solid #f59e0b;
 
-    border-radius:14px;
+    border-radius:12px;
 
-    padding:18px 22px;
+    padding:14px 18px;
 
-    margin-bottom:16px;
+    margin-bottom:12px;
 
     transition:.25s;
 
@@ -577,11 +577,9 @@ button:hover{
 
 .pendingItem:hover{
 
-    border-color:#475569;
+    border-color:#3b82f6;
 
     transform:translateY(-2px);
-
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
 
 }
 
@@ -591,25 +589,25 @@ button:hover{
 
     flex-direction:column;
 
-    gap:6px;
+    gap:4px;
 
 }
 
 .pendingInfo b{
 
-    font-size:22px;
+    font-size:18px;
+
+    font-weight:600;
 
     color:#f8fafc;
-
-    font-weight:700;
 
 }
 
 .pendingInfo span{
 
-    color:#94a3b8;
+    font-size:13px;
 
-    font-size:14px;
+    color:#94a3b8;
 
 }
 
@@ -617,21 +615,23 @@ button:hover{
 
     display:flex;
 
-    gap:12px;
+    align-items:center;
+
+    gap:10px;
 
 }
 
 .buttonGroup button{
 
-    min-width:110px;
+    min-width:90px;
 
-    height:42px;
+    height:38px;
 
-    border-radius:10px;
-
-    font-size:15px;
+    font-size:14px;
 
     font-weight:600;
+
+    border-radius:8px;
 
 }
 
