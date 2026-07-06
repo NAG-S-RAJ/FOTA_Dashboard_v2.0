@@ -1,4 +1,4 @@
-const SERVER = "https://fota-demo-v2-0.onrender.com";
+const SERVER = "https://fota-demo.onrender.com";
 
 async function loadCampaigns() {
 
@@ -27,20 +27,26 @@ async function loadCampaigns() {
                 "searchCampaign"
             ).value
             .toLowerCase();
+            const filteredCampaigns = campaigns.filter(c => {
 
-        campaigns.forEach(c => {
+                return !search ||
 
-            if (
-                search &&
-                !c.campaign_id
-                    .toLowerCase()
-                    .includes(search) &&
-                !c.vin
-                    .toLowerCase()
-                    .includes(search)
-            ) {
-                return;
-            }
+                    c.campaign_id.toLowerCase().includes(search) ||
+
+                    c.vin.toLowerCase().includes(search);
+
+            });
+
+            document.getElementById("campaignCount").innerText =
+                filteredCampaigns.length;
+
+            document.getElementById("runningCount").innerText =
+                filteredCampaigns.filter(c => c.status !== "completed").length;
+
+            document.getElementById("completedCount").innerText =
+                filteredCampaigns.filter(c => c.status === "completed").length;
+
+        filteredCampaigns.forEach(c => {
 
             let sgw = "-";
             let bcm = "-";
