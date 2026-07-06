@@ -217,7 +217,6 @@
 
 }
 
-
 /* ===========================
    Status Badges
 =========================== */
@@ -230,15 +229,21 @@
 
     justify-content:center;
 
-    min-width:110px;
+    min-width:130px;
 
-    padding:6px 14px;
+    min-height:40px;
 
-    border-radius:20px;
+    padding:8px 18px;
 
-    font-size:13px;
+    border-radius:24px;
 
-    font-weight:600;
+    font-size:16px;
+
+    font-weight:700;
+
+    text-transform:capitalize;
+
+    letter-spacing:0.3px;
 
 }
 
