@@ -548,62 +548,88 @@ button:hover{
 }
 
 /* ===========================
-   Pending TBMs
+   Pending TBM Card
 =========================== */
 
 .pendingItem{
 
-    background:#1f2937;
+    display:flex;
 
-    border:1px solid #374151;
+    justify-content:space-between;
 
-    border-left:4px solid #f59e0b;
+    align-items:center;
 
-    border-radius:12px;
+    background:#1b2433;
 
-    padding:18px;
+    border:1px solid #334155;
+
+    border-left:5px solid #f59e0b;
+
+    border-radius:14px;
+
+    padding:18px 22px;
 
     margin-bottom:16px;
 
     transition:.25s;
 
-    box-shadow:0 6px 18px rgba(0,0,0,.25);
-
 }
 
 .pendingItem:hover{
 
+    border-color:#475569;
+
     transform:translateY(-2px);
 
-    border-color:#fbbf24;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
 
 }
 
-.pendingItem b{
-
-    font-size:17px;
-
-    color:#f8fafc;
-
-}
-
-.pendingItem .buttonGroup{
+.pendingInfo{
 
     display:flex;
 
-    gap:10px;
+    flex-direction:column;
 
-    margin-top:16px;
+    gap:6px;
 
 }
 
-.pendingItem button{
+.pendingInfo b{
 
-    flex:1;
+    font-size:22px;
 
-    height:40px;
+    color:#f8fafc;
 
-    border-radius:8px;
+    font-weight:700;
+
+}
+
+.pendingInfo span{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+.buttonGroup{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.buttonGroup button{
+
+    min-width:110px;
+
+    height:42px;
+
+    border-radius:10px;
+
+    font-size:15px;
 
     font-weight:600;
 
