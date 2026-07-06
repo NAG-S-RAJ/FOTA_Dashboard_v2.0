@@ -104,14 +104,8 @@ type="text"
 id="campaignId"
 placeholder="Campaign ID">
 
-<select id="tbmList" onchange="loadCurrentVersions()">
-
-<option value="">
-
-Select Connected VIN
-
-</option>
-
+<select id="vin" onchange="loadCurrentVersions()">
+    <option value="">Select Connected VIN</option>
 </select>
 
 <input
@@ -239,7 +233,6 @@ Bosch Engineering Demo • FOTA Platform v2.0
 
 <script src="../static/js/common.js"></script>
 <script src="../static/js/create_campaign.js"></script>
-<script src="../static/js/dashboard.js"></script></body>
 
 </body>
 
