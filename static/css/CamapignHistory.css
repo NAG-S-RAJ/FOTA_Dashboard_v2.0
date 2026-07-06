@@ -1,4 +1,45 @@
 /* ===========================
+   KPI Cards
+=========================== */
+
+.kpiRow{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-bottom:25px;
+
+}
+
+.kpi{
+
+    min-width:240px;
+
+}
+
+.kpiValue{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#60a5fa;
+
+}
+
+.kpiLabel{
+
+    color:#9ca3af;
+
+    margin-top:8px;
+
+}
+
+
+/* ===========================
    Toolbar
 =========================== */
 
@@ -30,11 +71,11 @@
 
     height:44px;
 
-    min-width:110px;
+    min-width:120px;
 
     margin:0;
 
-    padding:0 20px;
+    padding:0 24px;
 
     display:flex;
 
@@ -42,9 +83,12 @@
 
     justify-content:center;
 
-    box-sizing:border-box;
-
 }
+
+
+/* ===========================
+   Table
+=========================== */
 
 .table-container{
 
@@ -58,6 +102,8 @@
 
     background:#111827;
 
+    margin-top:20px;
+
 }
 
 #campaignTable{
@@ -70,19 +116,15 @@
 
 }
 
-#campaignTable thead{
+#campaignTable th{
 
     background:#1f2937;
 
-}
-
-#campaignTable th{
+    color:#60a5fa;
 
     padding:16px;
 
-    text-align:left;
-
-    color:#60a5fa;
+    text-align:center;
 
     font-size:14px;
 
@@ -92,15 +134,15 @@
 
 #campaignTable td{
 
-    padding:15px;
+    padding:16px;
+
+    text-align:center;
 
     border-top:1px solid #374151;
 
-    white-space:nowrap;
+    vertical-align:middle;
 
-    overflow:hidden;
-
-    text-overflow:ellipsis;
+    word-wrap:break-word;
 
 }
 
@@ -116,19 +158,95 @@
 
 }
 
-.status-online{
 
-    background:#14532d;
+/* Column widths */
 
-    color:#6ee7b7;
+#campaignTable th:nth-child(1),
+#campaignTable td:nth-child(1){
 
-    padding:6px 12px;
+    width:12%;
 
-    border-radius:30px;
+}
+
+#campaignTable th:nth-child(2),
+#campaignTable td:nth-child(2){
+
+    width:18%;
+
+}
+
+#campaignTable th:nth-child(3),
+#campaignTable td:nth-child(3){
+
+    width:12%;
+
+}
+
+#campaignTable th:nth-child(4),
+#campaignTable td:nth-child(4){
+
+    width:10%;
+
+}
+
+#campaignTable th:nth-child(5),
+#campaignTable td:nth-child(5){
+
+    width:12%;
+
+}
+
+#campaignTable th:nth-child(6),
+#campaignTable td:nth-child(6){
+
+    width:12%;
+
+}
+
+#campaignTable th:nth-child(7),
+#campaignTable td:nth-child(7){
+
+    width:14%;
+
+}
+
+#campaignTable th:nth-child(8),
+#campaignTable td:nth-child(8){
+
+    width:10%;
+
+}
+
+
+/* ===========================
+   Status Badges
+=========================== */
+
+.statusBadge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:110px;
+
+    padding:6px 14px;
+
+    border-radius:20px;
 
     font-size:13px;
 
     font-weight:600;
+
+}
+
+.status-completed{
+
+    background:#14532d;
+
+    color:#6ee7b7;
 
 }
 
@@ -138,13 +256,13 @@
 
     color:#fde047;
 
-    padding:6px 12px;
+}
 
-    border-radius:30px;
+.status-downloading{
 
-    font-size:13px;
+    background:#1d4ed8;
 
-    font-weight:600;
+    color:#bfdbfe;
 
 }
 
@@ -154,17 +272,16 @@
 
     color:#fca5a5;
 
-    padding:6px 12px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:600;
-
 }
 
+
+/* ===========================
+   Delete Button
+=========================== */
+
 .delete-btn{
+
+    width:90px;
 
     background:#dc2626;
 
@@ -174,14 +291,16 @@
 
     border-radius:8px;
 
-    padding:8px 16px;
+    padding:8px 0;
 
     cursor:pointer;
+
+    transition:.25s;
 
 }
 
 .delete-btn:hover{
 
-    background:#ef4444;
+    background:#b91c1c;
 
 }
