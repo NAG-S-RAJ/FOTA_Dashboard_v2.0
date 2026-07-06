@@ -62,30 +62,38 @@ async function loadPending(){
 
     data.pending.forEach(vin=>{
 
-        div.innerHTML +=
+        div.innerHTML += 
         `
         <div class="pendingItem">
-
-            <b>${vin}</b>
-
-            <br><br>
-
-            <button
-            class="approve"
-            onclick="approveTBM('${vin}')">
-
-            Approve
-
-            </button>
-
-            <button
-            class="reject"
-            onclick="rejectTBM('${vin}')">
-
-            Reject
-
-            </button>
-
+            
+            <div class="pendingInfo">
+            
+                <b>${vin}</b>
+            
+                <span>Waiting for approval</span>
+            
+            </div>
+            
+            <div class="buttonGroup">
+            
+                <button
+                class="approve"
+                onclick="approveTBM('${vin}')">
+            
+                Approve
+            
+                </button>
+            
+                <button
+                class="reject"
+                onclick="rejectTBM('${vin}')">
+            
+                Reject
+            
+                </button>
+            
+            </div>
+            
         </div>
         `;
     });
