@@ -28,6 +28,22 @@ select{
 
 }
 
+label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    margin-top:4px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#cbd5e1;
+
+}
+
 select:focus{
 
     outline:none;
