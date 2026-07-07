@@ -14,10 +14,6 @@ async function loadCampaigns() {
 
         const campaigns =
             await response.json();
-        
-        campaigns.sort((a, b) =>
-            b.campaign_id.localeCompare(a.campaign_id)
-        );
 
         const campaignList =
             document.getElementById(
@@ -50,7 +46,7 @@ async function loadCampaigns() {
             document.getElementById("completedCount").innerText =
                 filteredCampaigns.filter(c => c.status === "completed").length;
 
-        filteredCampaigns.forEach(c => {
+        filteredCampaigns.reverse().forEach(c => {
 
             let sgw = "-";
             let bcm = "-";
