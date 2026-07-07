@@ -379,40 +379,54 @@ async function loadCampaigns(){
     });
 }
 
-
 /* ==========================
    LOGS
 ========================== */
 
-async function loadLogs(){
+let firstLoad = true;
+
+async function loadLogs() {
 
     const response =
-    await fetch(
-        SERVER + "/logs"
-    );
+        await fetch(
+            SERVER + "/logs"
+        );
 
     const data =
-    await response.json();
+        await response.json();
 
     const logs =
-    document.getElementById(
-        "logs"
-    );
+        document.getElementById(
+            "logs"
+        );
+
+    const shouldScroll =
+        firstLoad ||
+        (
+            logs.scrollTop +
+            logs.clientHeight >=
+            logs.scrollHeight - 20
+        );
 
     logs.innerHTML = "";
 
-    data.forEach(item=>{
+    data.forEach(item => {
 
         logs.innerHTML +=
-        item +
-        "<br>";
+            item +
+            "<br>";
 
     });
 
-    logs.scrollTop =
-    logs.scrollHeight;
-}
+    if (shouldScroll) {
 
+        logs.scrollTop =
+            logs.scrollHeight;
+
+    }
+
+    firstLoad = false;
+}
 
 /* ==========================
    AUTO REFRESH
