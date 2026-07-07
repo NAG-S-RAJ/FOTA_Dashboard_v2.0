@@ -6,19 +6,7 @@
 
 body{
     font-family:"Segoe UI",Arial,sans-serif;
-    background:
-        radial-gradient(
-            circle at top left,
-            #1e3a8a,
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at top right,
-            #0f766e,
-            transparent 40%
-        ),
-        #020617;
-
+    background: #020617;
     min-height:100vh;
     color:#e5e7eb;
 }
