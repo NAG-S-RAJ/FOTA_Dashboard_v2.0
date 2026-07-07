@@ -14,6 +14,10 @@ async function loadCampaigns() {
 
         const campaigns =
             await response.json();
+        
+        campaigns.sort((a, b) =>
+            b.campaign_id.localeCompare(a.campaign_id)
+        );
 
         const campaignList =
             document.getElementById(
