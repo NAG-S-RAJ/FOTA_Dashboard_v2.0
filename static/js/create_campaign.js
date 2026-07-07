@@ -290,8 +290,7 @@ function autoGenerateCampaignFields() {
 
     const time =
         String(now.getHours()).padStart(2, "0") +
-        String(now.getMinutes()).padStart(2, "0") +
-        String(now.getSeconds()).padStart(2, "0");
+        String(now.getMinutes()).padStart(2, "0");
 
     document.getElementById("campaignId").value =
         `CMP_${vin}_${date}_${time}`;
@@ -324,12 +323,12 @@ async function loadCurrentVersions() {
 
     document.getElementById("currentBCM").innerText =
         tbm.bcm_version;
-    
+
     // Auto-fill next target versions
-    
+
     document.getElementById("sgwVersion").value =
         nextVersion(tbm.sgw_version);
-    
+
     document.getElementById("bcmVersion").value =
         nextVersion(tbm.bcm_version);
     }
