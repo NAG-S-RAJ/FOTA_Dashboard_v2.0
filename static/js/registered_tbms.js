@@ -177,21 +177,29 @@ async function addTBM(){
         .value
         .trim();
 
-    const sgw =
+    let sgw =
         document
         .getElementById(
             "sgwVersion"
         )
         .value
         .trim();
-
-    const bcm =
+    
+    let bcm =
         document
         .getElementById(
             "bcmVersion"
         )
         .value
         .trim();
+    
+    if (sgw && !sgw.includes(".")) {
+        sgw = Number(sgw).toFixed(1);
+    }
+    
+    if (bcm && !bcm.includes(".")) {
+        bcm = Number(bcm).toFixed(1);
+    }
 
     if(!vin){
 
