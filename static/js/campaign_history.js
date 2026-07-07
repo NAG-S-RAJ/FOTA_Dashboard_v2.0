@@ -76,47 +76,100 @@ async function loadCampaigns() {
                     c.bcm_target_version;
             }
 
-            tbody.innerHTML += `
+            div.innerHTML += `
 
-<tr>
-
-<td>${c.campaign_id}</td>
-
-<td>${c.campaign_name}</td>
-
-<td>${c.vin}</td>
-
-<td>${c.target_ecu}</td>
-
-<td>${sgw}</td>
-
-<td>${bcm}</td>
-
-<td>
-
-<span class="statusBadge">
-
-${c.status}
-
-</span>
-
-</td>
-
-<td>
-
-<button
-class="deleteBtn"
-onclick="deleteCampaign('${c.campaign_id}')">
-
-Delete
-
-</button>
-
-</td>
-
-</tr>
-
-`;
+                <div class="campaignCard">
+                        
+                    <div class="campaignHeader">
+                        
+                        <span class="statusBadge status-${c.status.toLowerCase()}">
+                        
+                            ${c.status}
+                        
+                        </span>
+                        
+                        <button
+                            class="deleteBtn"
+                            onclick="deleteCampaign('${c.campaign_id}')">
+                        
+                            Delete
+                        
+                        </button>
+                        
+                    </div>
+                        
+                    <div class="campaignBody">
+                        
+                        <div class="campaignInfo">
+                        
+                            <h3>${c.campaign_name}</h3>
+                        
+                            <p>
+                                <b>Campaign ID</b><br>
+                                ${c.campaign_id}
+                            </p>
+                        
+                            <p>
+                                <b>VIN</b><br>
+                                ${c.vin}
+                            </p>
+                        
+                        </div>
+                        
+                        <div class="campaignVersions">
+                        
+                            <p>
+                                <b>Target ECU</b><br>
+                                ${c.target_ecu}
+                            </p>
+                        
+                            <p>
+                                <b>SGW Version</b><br>
+                                ${sgw}
+                            </p>
+                        
+                            <p>
+                                <b>BCM Version</b><br>
+                                ${bcm}
+                            </p>
+                        
+                        </div>
+                        
+                        <div class="campaignStatus">
+                        
+                            <p>
+                                Deployment Progress
+                            </p>
+                        
+                            <div class="progressBar">
+                        
+                                <div class="progressFill ${c.status.toLowerCase()}">
+                        
+                                </div>
+                        
+                            </div>
+                        
+                            <span>
+                        
+                                ${
+                                    c.status === "completed"
+                                    ? "100%"
+                                    : c.status === "running"
+                                    ? "60%"
+                                    : c.status === "downloading"
+                                    ? "35%"
+                                    : "0%"
+                                }
+                            
+                            </span>
+                            
+                        </div>
+                            
+                    </div>
+                            
+                </div>
+                            
+                `;
 
         });
 
