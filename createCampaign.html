@@ -99,101 +99,126 @@
 
 <h2>Create New Campaign</h2>
 
-<input
-type="text"
-id="campaignId"
-placeholder="Campaign ID">
+<label for="campaignId">
+    Campaign ID
+</label>
 
-<select id="vin" onchange="loadCurrentVersions()">
-    <option value="">Select Connected VIN</option>
+<input
+    type="text"
+    id="campaignId"
+    placeholder="Example: CMP_{VIN}_{DDMMYYYY}_{HHMM}">
+
+<label for="vin">
+    Target VIN
+</label>
+
+<select
+    id="vin"
+    onchange="loadCurrentVersions()">
+
+    <option value="">
+        Select Connected VIN
+    </option>
+
 </select>
 
-<input
-type="text"
-id="campaignName"
-placeholder="Campaign Name">
+<label for="campaignName">
+    Campaign Name
+</label>
 
-<h3>Select Taget ECUs</h3>
+<input
+    type="text"
+    id="campaignName"
+    placeholder="Campaign Name">
+
+<br>
+<br>
+
+<h3>Select Target ECUs</h3>
 
 <div class="ecuSection">
 
-<h3>SGW ECU</h3>
+    <h3>SGW ECU</h3>
 
-<div class="currentVersion">
+    <div class="currentVersion">
 
-Current Version :
-<span id="currentSGW">
+        Current Version :
+        <span id="currentSGW">--</span>
 
---
+    </div>
 
-</span>
+    <div class="ecuToggle">
 
-</div>
+        <input
+            type="checkbox"
+            id="enableSGW">
 
-<div class="ecuToggle">
+        <label for="enableSGW">
+            Update SGW
+        </label>
 
-<input
-type="checkbox"
-id="enableSGW">
+    </div>
 
-<label for="enableSGW">
+    <label for="sgwVersion">
+        Target Version
+    </label>
 
-Update SGW
+    <input
+        type="text"
+        id="sgwVersion"
+        placeholder="e.g. 3.0">
 
-</label>
+    <label for="sgwFirmware">
+        Firmware File
+    </label>
 
-</div>
-
-<input
-type="text"
-id="sgwVersion"
-placeholder="SGW Target Version">
-
-<input
-type="file"
-id="sgwFirmware"
-accept=".bin">
+    <input
+        type="file"
+        id="sgwFirmware"
+        accept=".bin">
 
 </div>
 
 <div class="ecuSection">
 
-<h3>BCM ECU</h3>
+    <h3>BCM ECU</h3>
 
-<div class="currentVersion">
+    <div class="currentVersion">
 
-Current Version :
-<span id="currentBCM">
+        Current Version :
+        <span id="currentBCM">--</span>
 
---
+    </div>
 
-</span>
+    <div class="ecuToggle">
 
-</div>
+        <input
+            type="checkbox"
+            id="enableBCM">
 
-<div class="ecuToggle">
+        <label for="enableBCM">
+            Update BCM
+        </label>
 
-<input
-type="checkbox"
-id="enableBCM">
+    </div>
 
-<label for="enableBCM">
+    <label for="bcmVersion">
+        Target Version
+    </label>
 
-Update BCM
+    <input
+        type="text"
+        id="bcmVersion"
+        placeholder="e.g. 3.0">
 
-</label>
+    <label for="bcmFirmware">
+        Firmware File
+    </label>
 
-</div>
-
-<input
-type="text"
-id="bcmVersion"
-placeholder="BCM Target Version">
-
-<input
-type="file"
-id="bcmFirmware"
-accept=".bin">
+    <input
+        type="file"
+        id="bcmFirmware"
+        accept=".bin">
 
 </div>
 
