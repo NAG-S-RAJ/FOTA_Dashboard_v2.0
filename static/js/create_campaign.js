@@ -297,7 +297,7 @@ function autoGenerateCampaignFields() {
         `CMP_${vin}_${date}_${time}`;
 
     document.getElementById("campaignName").value =
-        `${vin} Firmware Update`;
+        `${vin} - Firmware Update`;
 }
 
 async function loadCurrentVersions() {
