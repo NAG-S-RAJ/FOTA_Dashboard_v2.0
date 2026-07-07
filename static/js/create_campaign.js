@@ -320,11 +320,19 @@ async function loadCurrentVersions() {
     const tbm = await response.json();
 
     document.getElementById("currentSGW").innerText =
-        tbm.sgw_version;
+    tbm.sgw_version;
 
     document.getElementById("currentBCM").innerText =
         tbm.bcm_version;
-}
+    
+    // Auto-fill next target versions
+    
+    document.getElementById("sgwVersion").value =
+        nextVersion(tbm.sgw_version);
+    
+    document.getElementById("bcmVersion").value =
+        nextVersion(tbm.bcm_version);
+    }
 
 async function loadVINs() {
 
@@ -348,6 +356,21 @@ async function loadVINs() {
     });
 }
 
+function nextVersion(version) {
+
+    if (!version || version === "--")
+        return "";
+
+    const value = parseFloat(version);
+
+    if (isNaN(value))
+        return "";
+
+    return (value + 1.0).toFixed(1);
+
+}
+
 window.onload = () => {
     loadVINs();
 };
+
