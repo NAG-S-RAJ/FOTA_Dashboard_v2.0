@@ -129,7 +129,7 @@ async function loadTBMs(){
     if(data.online_tbms.length === 0){
 
         div.innerHTML =
-        "No Connected TBMs";
+        "No Connected Vehicles";
 
         return;
     }
