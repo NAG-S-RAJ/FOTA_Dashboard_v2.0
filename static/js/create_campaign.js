@@ -273,6 +273,33 @@ async function createCampaign() {
     }
 }
 
+function autoGenerateCampaignFields() {
+
+    const vin =
+        document.getElementById("vin").value;
+
+    if (!vin)
+        return;
+
+    const now = new Date();
+
+    const date =
+        now.getFullYear().toString() +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0");
+
+    const time =
+        String(now.getHours()).padStart(2, "0") +
+        String(now.getMinutes()).padStart(2, "0") +
+        String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("campaignId").value =
+        `CMP_${vin}_${date}_${time}`;
+
+    document.getElementById("campaignName").value =
+        `${vin} Firmware Update`;
+}
+
 async function loadCurrentVersions() {
 
     const vin = document.getElementById("vin").value;
@@ -283,6 +310,8 @@ async function loadCurrentVersions() {
         document.getElementById("currentBCM").innerText = "--";
         return;
     }
+
+    autoGenerateCampaignFields()
 
     const response = await fetch(
         SERVER + "/registered_tbm/" + vin
