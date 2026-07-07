@@ -373,4 +373,3 @@ function nextVersion(version) {
 window.onload = () => {
     loadVINs();
 };
-
