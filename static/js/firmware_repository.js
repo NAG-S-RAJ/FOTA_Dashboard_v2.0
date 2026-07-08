@@ -169,6 +169,12 @@ async function loadHistory(){
 
                 </span>
 
+                <span>
+
+                    Uploaded : ${new Date(item.uploaded_at).toLocaleString()}
+                
+                </span>
+
             </div>
 
             <div class="historyRight">
