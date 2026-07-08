@@ -25,28 +25,29 @@ async function loadLatestFirmware(){
             const info = data[ecu] || {};
 
             div.innerHTML += `
-            <div class="latestItem">
-
-                <h3>${ecu}</h3>
-
-                <p><b>Version</b> : ${info.version || "--"}</p>
-
-                <p>${info.file || "--"}</p>
-
-                ${
-                    info.download_url
-                    ? `<a
-                        href="#"
-                        onclick="downloadFirmware('${info.path}')">
-
-                        Download Firmware
-
-                        </a>`
-                    : `<span style="color:#94a3b8">No firmware uploaded</span>`
-                }
-
-            </div>
-            `;
+                <div class="latestItem">
+                        
+                    <h3>${ecu}</h3>
+                        
+                    <p><b>Version</b> : ${info.version || "--"}</p>
+                        
+                    <p><b>File</b> : ${info.file || "--"}</p>
+                        
+                    <p><b>Uploaded</b> : ${info.uploaded_at || "--"}</p>
+                        
+                    ${
+                        info.download_url
+                        ? `<a href="#"
+                             onclick="downloadFirmware('${info.path}')">
+                             Download Firmware
+                           </a>`
+                        : `<span style="color:#94a3b8">
+                             No firmware uploaded
+                           </span>`
+                    }
+                
+                </div>
+                `;
 
         });
 
@@ -167,12 +168,6 @@ async function loadHistory(){
 
                     ${item.file}
 
-                </span>
-
-                <span>
-
-                    Uploaded : ${new Date(item.uploaded_at).toLocaleString()}
-                
                 </span>
 
             </div>
