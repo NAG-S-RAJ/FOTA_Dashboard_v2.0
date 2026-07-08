@@ -11,10 +11,10 @@ async function loadLatestFirmware(){
         await response.json();
 
     document.getElementById("latestSGW").innerText =
-        data.SGW.version;
-
+        data.SGW?.version || "--";
+        
     document.getElementById("latestBCM").innerText =
-        data.BCM.version;
+        data.BCM?.version || "--";
 
     const div =
         document.getElementById(
@@ -23,31 +23,43 @@ async function loadLatestFirmware(){
 
     div.innerHTML = "";
 
-    ["SGW","BCM"].forEach(ecu=>{
+        ["SGW", "BCM"].forEach(ecu => {
+
+        const info = data[ecu] || {};
 
         div.innerHTML += `
+
         <div class="latestItem">
 
             <h3>${ecu}</h3>
 
             <p>
+
                 Version :
-                ${data[ecu].version}
+                ${info.version || "--"}
+
             </p>
 
             <p>
-                ${data[ecu].file}
+
+                ${info.file || "--"}
+
             </p>
 
-            <a
-                href="${data[ecu].download_url}"
-                target="_blank">
-
-                Download Firmware
-
-            </a>
+            ${
+                info.download_url
+                ?
+                `<a href="${info.download_url}" target="_blank">
+                    Download Firmware
+                 </a>`
+                :
+                `<span style="color:#94a3b8">
+                    No firmware uploaded
+                 </span>`
+            }
 
         </div>
+
         `;
 
     });
