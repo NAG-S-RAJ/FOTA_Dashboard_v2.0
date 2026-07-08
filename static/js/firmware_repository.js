@@ -66,6 +66,7 @@ async function uploadFirmware(){
     }
 
     const formData = new FormData();
+
     formData.append("ecu", ecu);
     formData.append("version", version);
     formData.append("file", file);
@@ -73,11 +74,18 @@ async function uploadFirmware(){
     try{
 
         const response = await fetch(
-            SERVER + "/upload_firmware",
+
+            SERVER +
+            "/upload_firmware?ecu=" +
+            encodeURIComponent(ecu) +
+            "&version=" +
+            encodeURIComponent(version),
+
             {
                 method:"POST",
                 body:formData
             }
+
         );
 
         const result = await response.json();
@@ -100,7 +108,7 @@ async function uploadFirmware(){
     }catch(err){
 
         console.error(err);
-        alert(err);
+        alert("Upload failed.");
 
     }
 
