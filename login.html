@@ -20,10 +20,11 @@
 }
 
 body{
-
     height:100vh;
 
     display:flex;
+    flex-direction:column;
+
     justify-content:center;
     align-items:center;
 
@@ -212,12 +213,40 @@ body{
     font-size:14px;
 }
 
+.logo-container{
+    margin-bottom:-20px;
+}
+
+.headerLogo{
+    width:200px;
+    height:auto;
+    object-fit:contain;
+    margin-top:-80px;
+    filter:drop-shadow(0 0 10px rgba(79,141,255,.25));
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    font-weight:700;
+    color:#4f8dff;
+    margin-bottom:25px;
+    position:static;   /* Remove left:-17px */
+}
+
 </style>
 
 </head>
 
 <body>
 
+<div class="logo-container">
+<img
+    src="static/images/logo.png"
+    class="headerLogo"
+    alt="Bosch Logo">
+</div>
+    
 <div class="login-card">
 
     <h1 class="title">
@@ -280,9 +309,8 @@ function login(){
     if(
         user === "admin"
         &&
-        pass === "bosch123"
+        pass === "admin"
     ){
-
         sessionStorage.setItem(
             "fota_logged_in",
             "true"
