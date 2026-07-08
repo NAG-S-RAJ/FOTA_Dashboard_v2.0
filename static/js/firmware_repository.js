@@ -56,71 +56,53 @@ async function loadLatestFirmware(){
 
 async function uploadFirmware(){
 
-    const ecu =
-        document.getElementById(
-            "ecu"
-        ).value;
-
-    const version =
-        document.getElementById(
-            "version"
-        ).value.trim();
-
-    const file =
-        document.getElementById(
-            "firmwareFile"
-        ).files[0];
+    const ecu = document.getElementById("ecu").value;
+    const version = document.getElementById("version").value.trim();
+    const file = document.getElementById("firmwareFile").files[0];
 
     if(!version || !file){
-
         alert("Fill all fields");
-
         return;
-
     }
 
-    const formData =
-        new FormData();
+    const formData = new FormData();
+    formData.append("ecu", ecu);
+    formData.append("version", version);
+    formData.append("file", file);
 
-    formData.append(
-        "ecu",
-        ecu
-    );
+    try{
 
-    formData.append(
-        "version",
-        version
-    );
-
-    formData.append(
-        "file",
-        file
-    );
-
-    const response =
-        await fetch(
-
-            SERVER +
-            "/upload_firmware",
-
+        const response = await fetch(
+            SERVER + "/upload_firmware",
             {
-
                 method:"POST",
-
                 body:formData
-
             }
-
         );
 
-    const result =
-        await response.json();
+        const result = await response.json();
 
-    alert(result.status);
+        console.log(result);
 
-    loadLatestFirmware();
+        if(result.status === "success"){
 
-    loadHistory();
+            alert("Firmware uploaded successfully.");
+
+            loadLatestFirmware();
+            loadHistory();
+
+        }else{
+
+            alert(result.message || JSON.stringify(result));
+
+        }
+
+    }catch(err){
+
+        console.error(err);
+        alert(err);
+
+    }
 
 }
 
