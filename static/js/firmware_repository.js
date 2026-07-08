@@ -35,7 +35,13 @@ async function loadLatestFirmware(){
 
                 ${
                     info.download_url
-                    ? `<a href="${info.download_url}" target="_blank">Download Firmware</a>`
+                    ? `<a
+                        href="#"
+                        onclick="downloadFirmware('${info.path}')">
+
+                        Download Firmware
+
+                        </a>`
                     : `<span style="color:#94a3b8">No firmware uploaded</span>`
                 }
 
@@ -115,6 +121,17 @@ async function uploadFirmware(){
 
 }
 
+function downloadFirmware(path){
+
+    window.open(
+        SERVER +
+        "/download_firmware?path=" +
+        encodeURIComponent(path),
+        "_blank"
+    );
+
+}
+
 async function loadHistory(){
 
     const response =
@@ -158,7 +175,7 @@ async function loadHistory(){
 
                 <button
                     class="downloadBtn"
-                    onclick="window.open('${item.download_url}')">
+                    onclick="downloadFirmware('${item.path}')">
 
                     Download
 
