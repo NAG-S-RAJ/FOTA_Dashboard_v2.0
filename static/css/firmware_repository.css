@@ -1,0 +1,181 @@
+.pageTitle{
+
+    margin-bottom:30px;
+
+}
+
+.pageTitle h1{
+
+    color:white;
+
+    margin-bottom:8px;
+
+}
+
+.pageTitle p{
+
+    color:#94a3b8;
+
+}
+
+.card{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.card label{
+
+    margin-top:15px;
+
+    margin-bottom:6px;
+
+    color:#cbd5e1;
+
+    font-weight:600;
+
+}
+
+.card select,
+
+.card input{
+
+    margin-bottom:15px;
+
+}
+
+.card button{
+
+    margin-top:10px;
+
+}
+
+#latestFirmwareList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.latestItem{
+
+    background:#1f2937;
+
+    border:1px solid #374151;
+
+    border-radius:12px;
+
+    padding:18px;
+
+}
+
+.latestItem h3{
+
+    color:#60a5fa;
+
+    margin-bottom:10px;
+
+}
+
+.latestItem p{
+
+    margin:6px 0;
+
+    color:#cbd5e1;
+
+}
+
+.latestItem a{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+}
+
+.latestItem a:hover{
+
+    text-decoration:underline;
+
+}
+
+#historyList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.historyItem{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#1f2937;
+
+    border:1px solid #374151;
+
+    border-radius:10px;
+
+    padding:16px 20px;
+
+}
+
+.historyLeft{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.historyLeft b{
+
+    color:white;
+
+}
+
+.historyLeft span{
+
+    color:#94a3b8;
+
+}
+
+.historyRight{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.downloadBtn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.downloadBtn:hover{
+
+    background:#1d4ed8;
+
+}
