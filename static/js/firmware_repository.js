@@ -2,67 +2,56 @@ const SERVER = "https://fota-demo-v2-0.onrender.com";
 
 async function loadLatestFirmware(){
 
-    const response =
-        await fetch(
+    try{
+
+        const response = await fetch(
             SERVER + "/latest_firmware"
         );
 
-    const data =
-        await response.json();
+        if(!response.ok){
+            throw new Error("HTTP " + response.status);
+        }
 
-    document.getElementById("latestSGW").innerText =
-        data.SGW?.version || "--";
-        
-    document.getElementById("latestBCM").innerText =
-        data.BCM?.version || "--";
+        const data = await response.json();
 
-    const div =
-        document.getElementById(
-            "latestFirmwareList"
-        );
+        console.log("Latest:", data);
 
-    div.innerHTML = "";
+        const div = document.getElementById("latestFirmwareList");
 
-        ["SGW", "BCM"].forEach(ecu => {
+        div.innerHTML = "";
 
-        const info = data[ecu] || {};
+        ["SGW","BCM"].forEach(ecu=>{
 
-        div.innerHTML += `
+            const info = data[ecu] || {};
 
-        <div class="latestItem">
+            div.innerHTML += `
+            <div class="latestItem">
 
-            <h3>${ecu}</h3>
+                <h3>${ecu}</h3>
 
-            <p>
+                <p><b>Version</b> : ${info.version || "--"}</p>
 
-                Version :
-                ${info.version || "--"}
+                <p>${info.file || "--"}</p>
 
-            </p>
+                ${
+                    info.download_url
+                    ? `<a href="${info.download_url}" target="_blank">Download Firmware</a>`
+                    : `<span style="color:#94a3b8">No firmware uploaded</span>`
+                }
 
-            <p>
+            </div>
+            `;
 
-                ${info.file || "--"}
+        });
 
-            </p>
+    }catch(e){
 
-            ${
-                info.download_url
-                ?
-                `<a href="${info.download_url}" target="_blank">
-                    Download Firmware
-                 </a>`
-                :
-                `<span style="color:#94a3b8">
-                    No firmware uploaded
-                 </span>`
-            }
+        console.error(e);
 
-        </div>
+        document.getElementById("latestFirmwareList").innerHTML =
+            "<p style='color:red'>Unable to load latest firmware.</p>";
 
-        `;
-
-    });
+    }
 
 }
 
@@ -136,11 +125,6 @@ async function loadHistory(){
 
     const list =
         await response.json();
-
-    document.getElementById(
-        "firmwareCount"
-    ).innerText =
-        list.length;
 
     const div =
         document.getElementById(
