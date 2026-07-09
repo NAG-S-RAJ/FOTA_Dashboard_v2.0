@@ -160,26 +160,56 @@
 
     <div style="height:20px"></div>
 
-    <div class="card fullWidth">
+    <div class="grid">
 
-        <div class="consoleHeader">
+        <div class="card">
 
-            <h2>Firmware History</h2>
+            <div class="consoleHeader">
 
-            <button
-                class="downloadBtn"
-                onclick="refreshHistory()">
+                <h2>Existing SGW Firmware</h2>
 
-                Refresh
+                <button
+                    class="downloadBtn"
+                    onclick="refreshHistory()">
 
-            </button>
+                    Refresh
+
+                </button>
+
+            </div>
+            <div class="firmwareListContainer">
+                <div id="sgwFirmwareList">
+
+                    Loading...
+
+                </div>
+            </div>
 
         </div>
 
-        <div id="historyList">
-        
-            Loading firmware history...
-        
+        <div class="card">
+
+            <div class="consoleHeader">
+
+                <h2>Existing BCM Firmware</h2>
+
+                <button
+                    class="downloadBtn"
+                    onclick="refreshHistory()">
+
+                    Refresh
+
+                </button>
+
+            </div>
+            <div class="firmwareListContainer">
+                <div id="bcmFirmwareList">
+
+                    Loading...
+
+                </div>
+            </div>
+
         </div>
 
     </div>
