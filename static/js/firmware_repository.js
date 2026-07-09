@@ -144,29 +144,33 @@ async function loadHistory(){
     const list =
         await response.json();
 
-    const div =
+    const sgw =
         document.getElementById(
-            "historyList"
+            "sgwFirmwareList"
         );
 
-    div.innerHTML = "";
+    const bcm =
+        document.getElementById(
+            "bcmFirmwareList"
+        );
+
+    sgw.innerHTML = "";
+    bcm.innerHTML = "";
 
     list.forEach(item=>{
 
-        div.innerHTML += `
+        const html = `
+
         <div class="historyItem">
 
             <div class="historyLeft">
 
-                <b>
-
-                    ${item.ecu}
-
-                </b>
+                <b>${item.file}</b>
 
                 <span>
 
-                    ${item.file}
+                    Version :
+                    ${item.version}
 
                 </span>
 
@@ -185,7 +189,18 @@ async function loadHistory(){
             </div>
 
         </div>
+
         `;
+
+        if(item.ecu === "SGW"){
+
+            sgw.innerHTML += html;
+
+        }else{
+
+            bcm.innerHTML += html;
+
+        }
 
     });
 
